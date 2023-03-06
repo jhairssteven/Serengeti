@@ -6,41 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lugar y ubicación</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
-    <div>
-        <h1>El espacio físico y su ubicación</h2>
-            <div>
-                <div>La Reserva Natural del Serengeti es un vasto ecosistema de sabana (link qué es sabana) que cubre una
-                    superficie de más de 30.000km². Está ubicado en la región norte de Tanzania (mapa de tanzania,
-                    resaltando lo que cubre el parque), cerca de la frontera con Kenia. La reserva se extiende desde el
-                    Parque Nacional del Serengeti en Tanzania hasta la Reserva Nacional de Masai Mara en Kenia, creando un
-                    hábitat natural continuo para la vida silvestre. El Serengeti es conocido por sus llanuras sin fin,
-                    colinas ondulantes, bosques y ríos, creando un paisaje impresionante para explorar (imágenes de los
-                    paisajes, no enfoca, pero puede tener, animales)</div>
-                <img src="../images/img.png" alt="">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html"><img src="../images/serengeti-national-park-logo.png" alt="Logo"></a>
             </div>
-            <div> <!-- Imágenes y descripción super pequeña -->
-                <div>
-                    <img src="../images/img.png" alt="">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                </div>
-                <div>
-                    <img src="../images/img.png" alt="">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                </div>
-                <div>
-                    <img src="../images/img.png" alt="">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                </div>
-                <div>
-                    <img src="../images/img.png" alt="">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                </div>
-            </div>
-    </div>
+            <ul class="menu">
+                <li><a href="./activities.html">Actividades</a></li>
+                <li><a href="./people.html">Habitantes</a></li>
+                <li><a href="./place.html">Lugar</a></li>
+                <li><a href="./stories.html">Historias</a></li>
+                <li><a href="./credits.html">Créditos</a></li>
+            </ul>
+        </nav>
 
+    </header>
+    <main>
+        <div class="content general-container">
+            <h1>El espacio físico y su ubicación</h2> <!-- Título -->
+            <div class="general-container characteristics-container">
+                <div class="item">
+                    <!-- Resumen general -->
+                    <div class="text">La Reserva Natural del Serengeti es un vasto ecosistema de <a href="https://en.wikipedia.org/wiki/Savanna">sabana</a> que cubre una
+                        superficie de más de 30.000km². Está ubicado en la región norte de <a href="https://en.wikipedia.org/wiki/Tanzania" target="_blank">Tanzania</a> (mapa de tanzania,
+                        resaltando lo que cubre el parque), cerca de la frontera con Kenia. La reserva se extiende desde el
+                        Parque Nacional del Serengeti en Tanzania hasta la Reserva Nacional de Masai Mara en Kenia, creando un
+                        hábitat natural continuo para la vida silvestre. El Serengeti es conocido por sus llanuras sin fin,
+                        colinas ondulantes, bosques y ríos, creando un paisaje impresionante para explorar (imágenes de los
+                        paisajes, no enfoca, pero puede tener, animales)</div>
+                        <img src="../images/tanzania_map.png" alt="">
+                    <img src="../images/serengeti_locationo.webp" alt="">
+                </div>
+            </div>
+            <div class="square landings"> <!-- Imágenes y descripción super pequeña -->
+                <div class="item-1 ss-card">
+                    <img src="../images/Serengeti_sunset.jpg" alt="">
+                    <div class="text">Una <a href="https://es.wikipedia.org/wiki/Acacia_tortilis">Acacia Tortilis</a> recortada por el sol poniente cerca del campamento Seronera.</div>
+                </div>
+                <div class="item-2 ss-card">
+                    <img src="../images/herds_migration.jpg" alt="">
+                    <div class="text">Migración masiva de Ñus</div>
+                </div>
+                <div class="item-3 ss-card">
+                    <img src="../images/Wildebeest_crossing_river_-_Stefan_Swanepoel.jpg" alt="">
+                    <div class="text">Ñu cruzando el río durante la migración del Serengeti.</div>
+                </div>
+                <div class="item-4 ss-card">
+                    <img src="../images/Serengeti_-_Stefan_Swanepoel.jpg" alt="">
+                    <div class="text">Stefan Wanepoel</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Diseñado con ❤️ por <a href="https://github.com/jhairssteven" target="_blank">@jhairssteven</a></p>
+    </footer>
 </body>
 
 </html>

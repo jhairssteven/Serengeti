@@ -1,0 +1,325 @@
+/* Barra de navegación */
+body {
+    margin: 0;
+
+    /* stick footer to bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* background-color: #D8C3A5; */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1c6819;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.493);
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #F4F4F4;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    color: #D8C3A5;
+}
+
+main {
+    /* stick footer to bottom */
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #1c6819;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.493);
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #F4F4F4;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: #D8C3A5;
+}
+
+/* Estilos para la página principal. Imagen de fondo y popup con vínculos a las demás páginas */
+.main-page {
+    position: relative;
+    font-size: large;
+
+}
+
+.main-page h1 {
+    font-size: xxx-large;
+}
+
+.main-page img {
+    filter: brightness(100%);
+}
+
+.main-content a {
+    color: #F4F4F4;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-content a:hover {
+    color: #D8C3A5;
+}
+
+.main-content ul {
+    color: white;
+}
+/* Recuadro oscuro para mejor contraste entre imágen de fondo e información */
+.main-content {
+    position: absolute;
+    top: 70px;
+    left: 10vw;
+    background-color: rgba(0, 0, 0, 0.411);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/* Contenido central con 80% de ancho y 1% de relleno */
+.content {
+    margin: auto;
+    width: 80%;
+    padding: 1%;
+}
+.content img {
+    height: 200px;
+}
+/* Justificar el texto */
+p {
+    text-align: justify;
+}
+
+.people.page-navigator {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 30px;
+    text-align: center;
+
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/* Mostrar contenedores con imágen y texto uno al lado del otro con un ancho máximo de 500 px */
+.species-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.species-container .card-container {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    padding-right: 5%;
+}
+
+.species-container .card-container img {
+    /* max-width: 100%; */
+    height: 200px;
+}
+
+/* Ajustar el contenido del contenedor description para mostrarse como columna */
+.species-container .card-container .description {
+    display: flex;
+    align-self: stretch;
+    flex-direction: column;
+}
+
+.species-container .card-container .description .text {
+    flex: 1;
+}
+
+/* Muestra los elementos del contenedor general en un diseño de columna con el mismo espaciado */
+.general-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.general-container .group-img {
+    height: 50vh;
+}
+
+.general-container .funny-facts {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.general-container .funny-facts .item {
+    max-width: 30%;
+}
+
+/* Muestra los elementos del contenedor de características en un diseño de columna con el mismo espaciado */
+.general-container .characteristics-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1500px;
+}
+
+/* Elemento alineado al inicio con padding superior e inferior de 2.5% el padre y sus contenidos centrados */
+.general-container .characteristics-container .item {
+    display: flex;
+    justify-self: flex-start;
+    justify-items: flex-start;
+    align-content: center;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+
+}
+
+/* Padding a lado y lado de 5% */
+.general-container .characteristics-container .item .text {
+    padding-inline: 5%;
+    max-width: 700px;
+}
+
+/* Los elementos con la clase switch representan un mirror de los que contienen la misma relación de clases */
+.general-container .characteristics-container .item.switch {
+    align-self: flex-end;
+}
+
+.general-container .characteristics-container .item.switch .text {
+    order: -1;
+    text-align: right;
+}
+
+/* Contenedor con elementos alineados en columna */
+.turism-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Contenedor con elementos alineados en columna y 
+un ancho máximo en píxeles para no perder
+la relación de aspecto en pantallas grandes */
+.turism-container .characteristics-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1500px;
+}
+
+.turism-container .characteristics-container .item {
+    display: flex;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.turism-container .characteristics-container .item .text {
+    padding-inline: 2.5%;
+    max-width: 700px;
+    align-self: flex-start;
+}
+
+/* Cuadrícula de cuatro elementos utilizada para crear el efecto de imágenes en diagonal */
+.square {
+    display: grid;
+    grid: 2, 2;
+    gap: 10px;
+}
+
+.square .item-1 {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.square .item-2 {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.square .item-3 {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+
+.square .item-4 {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+}
+
+.sturism-container .characteristics-container .item .text.switch {
+    order: -1;
+    text-align: right;
+}
+
+/* Clase para ser utilizada en conjunto con .square */
+.square.landings {
+    gap: 70px !important;
+    padding: 50px;
+}
+
+/* Cuadricula de dos elementos para crear efecto Card con imágen y texto corto */
+.ss-card {
+    display: grid;
+    grid: 1, 2;
+    gap: 10px;
+}
+
+.ss-card img {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.ss-card .text {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    width: 227px;
+}
+
+/* Poner un tamaño fijo para todas las imágenes listadas, 
+con el fin de mantener uniformidad. La visualización no es 
+estrictamente demandante puesto que se utiliza en las referencias.*/
+table img {
+    width: 200px;
+}
