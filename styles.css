@@ -1,4 +1,9 @@
-/* Barra de navegación */
+/* Declaración de variables para los estilos */
+:root {
+    --background: #1c6819;
+    --hover: #D8C3A5;
+  }
+
 body {
     margin: 0;
 
@@ -6,47 +11,200 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* background-color: #D8C3A5; */
 }
 
-nav {
+/* Empieza barra de navegación */  
+
+  header {
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+  }
+
+  .nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  
+  .nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px solid rgba(lightblue, .75);
+  }
+  
+  .nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #1c6819;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.493);
-}
+  }
 
-.logo img {
-    max-height: 50px;
-}
+  /* Cambiar el color de las barras de navegación al hacer clic */
+  .nav-toggle:checked ~ .nav-toggle-label span,
+  .nav-toggle:checked ~ .nav-toggle-label span::before,
+  .nav-toggle:checked ~ .nav-toggle-label span::after {
+    background: var(--hover);
+  }
+  
+  /* Creación de las tres barras de navegación tipo "burger"*/
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+  }
+  /* Configuración para posicionar y quitar texto alguno de las barras*/
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+  }
+  
+  /* Espacio entre barra central y superior */
+  .nav-toggle-label span::before {
+    bottom: 7px;
+  }
+  
+  /* Espacio entre barra central e inferior */
+  .nav-toggle-label span::after {
+    top: 7px;
+  }
+  
+  nav {
+  /* Posicionamiento de la navegación */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  
+  /* Hace que la navegación se oculte por defecto */
+  transform: scale(1, 0);
+  transform-origin: top;
 
-.menu {
-    display: flex;
-    list-style: none;
+  /* Transición suave para el efecto de desplegado de la navegación */
+  transition: transform 400ms ease-in-out;
+  }
+  
+  nav ul {
     margin: 0;
     padding: 0;
-}
-
-.menu li {
-    margin: 0 10px;
-}
-
-.menu a {
+    /* Quita la viñeta de los elementos de la lista */
+    list-style: none;
+  }
+  
+  nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+  
+  nav a {
+    color: white;
     text-decoration: none;
-    color: #F4F4F4;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: 1px;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-}
+    opacity: 0;
+    /* Transición suave para el efecto de aparición de los elementos de la navegación */
+    transition: opacity 150ms ease-in-out;
+  }
+  
+  nav a:hover {
+    color: var(--hover);
+  }
+  
+  .nav-toggle:checked ~ nav {
+    /* Transforma la navegación a su tamaño completo cuando el botón está seleccionado */
+    transform: scale(1,1);
+  }
+  
+  /* Estilos para los links de la navegación cuando el botón está seleccionado */
+  .nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
 
-.menu a:hover {
-    color: #D8C3A5;
-}
-
+  /* Ajusta la posición del logo para que no se 
+  sobreponga al botón de navegación en pantallas pequeñas */
+  @media screen and (max-width: 422px) {
+    .logo {
+      margin-left: 55px;
+    }
+  }
+  /* Estilos para pantallas grandes */
+  @media screen and (min-width: 920px) {
+    .nav-toggle-label {
+      display: none;
+    }
+    
+    /* Define un grid con 4 columnas */
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+    
+    /* Asigna la segunda columna del grid al logo */
+    .logo {
+      grid-column: 2 / 3;
+    }
+    
+    nav {
+      position: relative;
+      text-align: left;
+      transition: none; /* Sin transición de cambio */
+      transform: scale(1,1);
+      background: none;
+      top: initial;
+      left: initial;
+      /* Justificación contenido a la derecha
+        con elementos centrados verticalmente */
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav li {
+      margin-bottom: 0;
+    }
+    
+    nav a {
+      opacity: 1;
+      position: relative;
+    }
+    
+    nav a::before {
+      content: ''; /* Establece el contenido del elemento a una cadena vacía */
+      display: block; 
+      height: 2px;
+      background: var(--hover);
+      position: absolute; 
+      /* Distancia desde el borde superior del 
+        contenedor al borde superior del elemento */
+      top: 1.55em; 
+      left: 0; 
+      right: 0;
+      transform: scale(0, 1); /* Establece la escala del elemento */
+      transition: transform ease-in-out 250ms;
+    }
+    
+    nav a:hover::before {
+      transform: scale(1, 1);
+    }
+  }
+  
+/* Termina barra de navegación */    
+  
 main {
     /* stick footer to bottom */
     flex-grow: 1;
@@ -77,10 +235,12 @@ footer a {
 }
 
 footer a:hover {
-    color: #D8C3A5;
+    color: var(--hover);
 }
 
-/* Estilos para la página principal. Imagen de fondo y popup con vínculos a las demás páginas */
+/* Estilos para la página principal. 
+  Imagen de fondo y popup con vínculos
+  a las demás páginas */
 .main-page {
     position: relative;
     font-size: large;
@@ -101,16 +261,17 @@ footer a:hover {
 }
 
 .main-content a:hover {
-    color: #D8C3A5;
+    color: var(--hover);
 }
 
 .main-content ul {
     color: white;
 }
-/* Recuadro oscuro para mejor contraste entre imágen de fondo e información */
+/* Recuadro oscuro para mejor contraste entre
+   imágen de fondo e información */
 .main-content {
     position: absolute;
-    top: 70px;
+    top: 20vh;
     left: 10vw;
     background-color: rgba(0, 0, 0, 0.411);
     border-radius: 15px;
@@ -123,11 +284,13 @@ footer a:hover {
     width: 80%;
     padding: 1%;
 }
+
 .content img {
     height: 200px;
 }
-/* Justificar el texto */
+
 p {
+  /* Justificar el texto */
     text-align: justify;
 }
 
@@ -145,7 +308,9 @@ p {
     padding-bottom: 5%;
 }
 
-/* Mostrar contenedores con imágen y texto uno al lado del otro con un ancho máximo de 500 px */
+/* Mostrar contenedores con imágen y 
+  texto uno al lado del otro con un ancho 
+  máximo de 500 px */
 .species-container {
     display: flex;
     flex-wrap: wrap;
@@ -159,11 +324,11 @@ p {
 }
 
 .species-container .card-container img {
-    /* max-width: 100%; */
     height: 200px;
 }
 
-/* Ajustar el contenido del contenedor description para mostrarse como columna */
+/* Ajustar el contenido del contenedor description
+  para mostrarse como columna */
 .species-container .card-container .description {
     display: flex;
     align-self: stretch;
@@ -174,12 +339,14 @@ p {
     flex: 1;
 }
 
-/* Muestra los elementos del contenedor general en un diseño de columna con el mismo espaciado */
+/* Muestra los elementos del contenedor general
+   en un diseño de columna con el mismo espaciado */
 .general-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    margin-top: 5%;
 }
 
 .general-container .group-img {
@@ -196,7 +363,8 @@ p {
     max-width: 30%;
 }
 
-/* Muestra los elementos del contenedor de características en un diseño de columna con el mismo espaciado */
+/* Muestra los elementos del contenedor de características
+   en un diseño de columna con el mismo espaciado */
 .general-container .characteristics-container {
     display: flex;
     flex-direction: column;
@@ -204,7 +372,8 @@ p {
     max-width: 1500px;
 }
 
-/* Elemento alineado al inicio con padding superior e inferior de 2.5% el padre y sus contenidos centrados */
+/* Elemento alineado al inicio con padding superior
+   e inferior de 2.5% el padre y sus contenidos centrados */
 .general-container .characteristics-container .item {
     display: flex;
     justify-self: flex-start;
@@ -221,7 +390,8 @@ p {
     max-width: 700px;
 }
 
-/* Los elementos con la clase switch representan un mirror de los que contienen la misma relación de clases */
+/* Los elementos con la clase switch representan 
+  un mirror de los que contienen la misma relación de clases */
 .general-container .characteristics-container .item.switch {
     align-self: flex-end;
 }
@@ -261,7 +431,8 @@ la relación de aspecto en pantallas grandes */
     align-self: flex-start;
 }
 
-/* Cuadrícula de cuatro elementos utilizada para crear el efecto de imágenes en diagonal */
+/* Cuadrícula de cuatro elementos utilizada 
+  para crear el efecto de imágenes en diagonal */
 .square {
     display: grid;
     grid: 2, 2;
