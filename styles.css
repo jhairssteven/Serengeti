@@ -177,6 +177,16 @@ body {
     nav li {
       margin-bottom: 0;
     }
+
+    /* Genera una fila de dos columnas para mantener 
+      la flecha de la lista desplegable alineado con el texto */
+    .link-arrow {
+      display: inline-grid;
+      grid-template-columns: 1fr auto;
+    }
+    a:hover .arrow-icon path {
+      fill: var(--hover);
+    }
     
     nav a {
       opacity: 1;
@@ -202,7 +212,69 @@ body {
       transform: scale(1, 1);
     }
   }
+  /* Empieza estilos menú desplegable*/
   
+    /* Posicionamiento del contenido del menú desplegable */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Contenido del menú desplegable (Escondido por defecto) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 100px;
+      z-index: 1;
+    }
+    
+    /* Estilos para los links del menú desplegable */
+    .dropdown-content a {
+      color: white;
+      background-color: var(--background);
+      padding: 12px 16px 8px 10px;
+      
+      display: block;
+      font-size: 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: opacity 150ms ease-in-out;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    .dropdown-content a::before {
+      content: '';
+      display: block; 
+      height: 2px;
+      background: var(--hover);
+      position: absolute; 
+      margin-inline: 5%;
+      top: 1.95em;
+      left: 0; 
+      right: 0;
+      transform: scale(0, 1);
+      transition: transform ease-in-out 250ms;
+    }
+    
+    .dropdown-content a:hover::before {
+      transform: scale(1, 1);
+    }
+
+    /* Muestra el menú desplegable cuando se haga "hover" sobre el link correspondiente */
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    @media screen and (max-width: 920px) {
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+      .dropdown-arrow {
+        display: none;
+      }
+      .arrow-icon {
+        display: none;
+      }
+    }
+  /* Termina estilos menú desplegable*/
 /* Termina barra de navegación */    
   
 main {
