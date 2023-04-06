@@ -566,3 +566,91 @@ estrictamente demandante puesto que se utiliza en las referencias.*/
 table img {
     width: 200px;
 }
+
+/* Empieza acordeón de créditos*/
+.credits-accordion .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+}
+
+.credits-accordion .grid-item {
+  position: relative;
+}
+
+.credits-accordion .grid-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.credits-accordion .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 0.8em;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.credits-accordion .grid-item:hover .caption {
+  opacity: 1;
+}
+/* -- */
+.credits-accordion input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  .credits-accordion {
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  }
+  .credits-accordion .accordion-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    background: var(--background);
+    color: #fff;
+  }
+  .credits-accordion .accordion-content {
+    max-height: 0;
+    padding: 0 1em;
+    background: white;
+    transition: all 0.35s;
+  }
+
+  .credits-accordion input#tab0:checked ~ .accordion-content0 {
+    max-height: fit-content;
+    padding: 1em;
+  }
+  
+  .credits-accordion input#tab1:checked ~ .accordion-content1 {
+    max-height: fit-content;
+    padding: 1em;
+  }
+  .credits-accordion input#tab2:checked ~ .accordion-content2 {
+    max-height: fit-content;
+    padding: 1em;
+  }
+  .credits-accordion input#tab3:checked ~ .accordion-content3 {
+    max-height: fit-content;
+    padding: 1em;
+  }
+  .credits-accordion input#tab4:checked ~ .accordion-content4 {
+    max-height: fit-content;
+    padding: 1em;
+  }
+  .credits-accordion input#tab5:checked ~ .accordion-content5 {
+    max-height: fit-content;
+    padding: 1em;
+  }
+/* Termina acordeón de créditos */
