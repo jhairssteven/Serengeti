@@ -316,7 +316,7 @@ footer a:hover {
 .main-page {
     position: relative;
     font-size: large;
-
+    overflow: hidden;
 }
 
 .main-page h1 {
@@ -324,7 +324,13 @@ footer a:hover {
 }
 
 .main-page img {
-    filter: brightness(100%);
+  filter: brightness(100%);
+}
+
+@media screen and (min-width: 1800px) {
+  .main-page img {
+    width: 100%;
+  }
 }
 
 .main-content a {
@@ -348,6 +354,7 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.411);
     border-radius: 15px;
     padding: 15px;
+    margin-right: 10px;
 }
 
 /* Contenido central con 80% de ancho y 1% de relleno */
@@ -379,7 +386,40 @@ p {
     padding-top: 5%;
     padding-bottom: 5%;
 }
+@media screen and (max-width: 650px) {
+  img.group-img {
+    width: 100%;
+  }
+}
 
+@media screen and (max-width: 375px) {
+  .characteristics-container img {
+    width: 100%;
+  }
+  .species-container img {
+    width: 100%;
+  }
+  .people.page-navigator {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    text-align: left;
+    align-self: flex-start;
+  }
+  .species-container .card-container {
+    flex-direction: column;
+  }
+  .species-container .card-container .description {
+    padding: 2% 1% 5% 1% !important;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .square {
+    display: block !important;
+  }
+  .square .item-2 {
+    display: none;
+  }
+}
 /* Mostrar contenedores con imágen y 
   texto uno al lado del otro con un ancho 
   máximo de 500 px */
@@ -405,6 +445,7 @@ p {
     display: flex;
     align-self: stretch;
     flex-direction: column;
+    padding: 2%;
 }
 
 .species-container .card-container .description .text {
@@ -418,7 +459,7 @@ p {
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 10vh !important;
 }
 
 .general-container .group-img {
@@ -429,6 +470,15 @@ p {
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1300px) {
+  .stories-img-group img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .general-container .funny-facts .item {
@@ -454,6 +504,25 @@ p {
     padding-top: 2.5%;
     padding-bottom: 2.5%;
 
+}
+
+@media screen and (max-width: 650px) {
+  
+  .general-container .characteristics-container .item {
+    flex-direction: column;
+  }
+  .general-container .characteristics-container .item.switch {
+    align-self: auto !important;
+    flex-direction: column-reverse;
+  }
+  .general-container .characteristics-container .item .text {
+    padding: 2% 1% 5% 1% !important;
+    /* padding-inline: 1% !important;
+    padding-top: 1%;
+    padding-bottom: 5%; */
+    text-align: left !important;
+    font-style: italic;
+  }
 }
 
 /* Padding a lado y lado de 5% */
@@ -541,7 +610,23 @@ la relación de aspecto en pantallas grandes */
     gap: 70px !important;
     padding: 50px;
 }
-
+@media screen and (max-width: 320px) {
+  .square.landings {
+    padding: 0%;
+  }
+  .ss-card {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .ss-card img {
+    width: 100%;
+  }
+  .ss-card .text {
+    padding: 2% 1% 5% 1% !important;
+    text-align: left !important;
+    font-style: italic;
+  }
+}
 /* Cuadricula de dos elementos para crear efecto Card con imágen y texto corto */
 .ss-card {
     display: grid;
