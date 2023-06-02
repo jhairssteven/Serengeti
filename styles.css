@@ -739,3 +739,48 @@ table img {
     padding: 1em;
   }
 /* Termina acordeón de créditos */
+
+/* Comienza estilos para el mapa interactivo*/
+/* The Modal (background) */
+.modal {
+
+  position: fixed; /* Mantenerse fijo en el lugar */
+  z-index: 1; /* Se ubica encima de todo */
+  padding-top: 100px; /* Ubicación del modal desde la parte superior */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Habilitar scroll si necesario */
+  background-color: rgb(0, 0, 0); /* Color de background del modal */
+  background-color: rgba(0, 0, 0, 0.4); /* Opacidad del background */
+  transition: opacity 500ms; /* Tiempo hasta alcanzar la máxima opacidad */
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+/* Botón para cerrar el modal */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Termina estilos para el mapa interactivo*/
